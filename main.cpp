@@ -3,16 +3,19 @@
 using namespace std;
 int main(){
     int control=0;
-    map<int, string> base_datos;
+    map<string, string> base_datos;
     do{
         string comando;
         string fecha;
         string evento;
 
         Fechas tiempo;
+        string ano;
+        string mes;
+        string dia;
         cout << "Ingrese comando y argumentos designados" << endl;
         cin >> comando;
-        
+
         if(comando=="Add" || comando=="Del" || comando=="Find" || comando=="Print"){
             if(comando != "Print"){
 
@@ -27,7 +30,7 @@ int main(){
                 }
                 int i=0;
                 while(i<fecha.size()){
-                    tiempo.ano +=fecha[i];
+                    ano +=fecha[i];
                     if(fecha[i+1]=='-'){
                         i +=2;
                         break;
@@ -35,7 +38,7 @@ int main(){
                     ++i;
                 }
                 while(i<fecha.size()){
-                    tiempo.mes +=fecha[i];
+                    mes +=fecha[i];
                     if(fecha[i+1]=='-'){
                         i +=2;
                         break;
@@ -43,18 +46,18 @@ int main(){
                     ++i;
                 }
                 
-                if(stoi(tiempo.mes)>12 || stoi(tiempo.mes)<1){
-                    cout << "Month value is invalid:" << tiempo.mes << endl;
+                if(stoi(mes)>12 || stoi(mes)<1){
+                    cout << "Month value is invalid:" << mes << endl;
                     return 0;
                 }
 
                 while(i<fecha.size()){
-                    tiempo.dia +=fecha[i];
+                    dia +=fecha[i];
                     ++i;
                 }
                 
-                if(stoi(tiempo.dia)>31 || stoi(tiempo.dia)<1){
-                    cout << "Day value is invalid: " << tiempo.dia << endl;
+                if(stoi(dia)>31 || stoi(dia)<1){
+                    cout << "Day value is invalid: " << dia << endl;
                     return 0;
                 }
             }
@@ -67,6 +70,9 @@ int main(){
         if(comando =="Add" || comando == "Del"){
                 cin >> evento;
         }
+        tiempo.ano = stoi(ano);
+        tiempo.mes = stoi(mes);
+        tiempo.dia = stoi(dia);
 
     base_datos_principal(comando, tiempo, evento, base_datos);
     }while(control>=0);
