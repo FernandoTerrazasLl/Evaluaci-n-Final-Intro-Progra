@@ -3,7 +3,7 @@
 using namespace std;
 int main(){
     int control=0;
-    map<string, string> base_datos;
+    map<string, set<string>> base_datos;
     do{
         string comando;
         string fecha;
@@ -18,8 +18,37 @@ int main(){
 
         if(comando=="Add" || comando=="Del" || comando=="Find" || comando=="Print"){
             if(comando != "Print"){
+                if(comando=="Del"){
+                    //Procedimiento si no nos dan el evento en Del
+                    string entrada_del;
+                    getline(cin,entrada_del);
+                    int size_del=1;
+                    while(size_del<entrada_del.size()){
+                        if(entrada_del[size_del]==' '){
+                            ++size_del;
+                            break;
+                        } 
+                        fecha += entrada_del[size_del];
+                        ++size_del;
+                    }
+                    
+                    if(size_del==entrada_del.size()-1){
+                        evento ="";
+                    }else{
+                        while(size_del<entrada_del.size()){
+                            if(entrada_del[size_del]==' '){
+                                ++size_del;
+                                break;
+                            } 
+                            evento += entrada_del[size_del];
+                            ++size_del;
+                        }
+                    }
 
-                cin >> fecha;
+                }else if(comando != "Del"){
+                    cin >> fecha;
+                }
+
                 if(((fecha[0]<= '9' && fecha[0]>= '0') && (fecha[fecha.size()-1] >= '0' && fecha[fecha.size()-1] <= '9'))
                 || ((fecha[0]=='-' && fecha[1] !='-') && (fecha[fecha.size()-1] >= '0' && fecha[fecha.size()-1] <= '9'))
                 || ((fecha[0]=='+' && fecha[1] !='+') && (fecha[fecha.size()-1] >= '0' && fecha[fecha.size()-1] <= '9'))){
@@ -67,9 +96,10 @@ int main(){
             return 0;
         }
 
-        if(comando =="Add" || comando == "Del"){
+        if(comando =="Add"){
                 cin >> evento;
         }
+
         tiempo.ano = stoi(ano);
         tiempo.mes = stoi(mes);
         tiempo.dia = stoi(dia);
