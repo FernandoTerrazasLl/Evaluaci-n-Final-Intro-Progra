@@ -98,10 +98,11 @@ int main(){
         if(comando =="Add"){
                 cin >> evento;
         }
-
+    if(comando !="Print"){
         tiempo.ano = stoi(ano);
         tiempo.mes = stoi(mes);
         tiempo.dia = stoi(dia);
+    }
 
     base_datos_principal(comando, tiempo, evento, base_datos);
     }while(1);

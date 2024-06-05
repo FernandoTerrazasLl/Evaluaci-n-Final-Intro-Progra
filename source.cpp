@@ -31,27 +31,24 @@ void comando_find(const map<string,set<string>>& base_datos, Fechas tiempo){
 }
 
 void comando_print(const map<string,set<string>>& base_datos){
-
+    
     for(const pair<string,set<string>>& fechas_eventos : base_datos){
         string ano_find, mes_find, dia_find;
         int find_clock=0;
 
-        // Extract year
-        while (find_clock < fechas_eventos.first.size() && fechas_eventos.first[find_clock] != '-') {
+        while(find_clock <fechas_eventos.first.size() && fechas_eventos.first[find_clock] != '-'){
             ano_find += fechas_eventos.first[find_clock];
             ++find_clock;
         }
+        ++find_clock;
 
-
-        // Extract month
-        while (find_clock < fechas_eventos.first.size() && fechas_eventos.first[find_clock] != '-') {
+        while(find_clock < fechas_eventos.first.size() && fechas_eventos.first[find_clock] != '-'){
             mes_find += fechas_eventos.first[find_clock];
             ++find_clock;
         }
         ++find_clock; 
-
     
-        while (find_clock < fechas_eventos.first.size()) {
+        while(find_clock< fechas_eventos.first.size()){
             dia_find += fechas_eventos.first[find_clock];
             ++find_clock;
         }
