@@ -25,26 +25,61 @@ void comando_del_fecha(map<string,set<string>>& base_datos, Fechas tiempo){
 
 void comando_find(const map<string,set<string>>& base_datos, Fechas tiempo){
     string key = to_string(tiempo.ano) + "-" + to_string(tiempo.mes) + "-" + to_string(tiempo.dia);
-    for(const auto& pair: base_datos(key)){ //AVERIGUAR SINTAXIS
-
+    for(const string& eventos: base_datos.at(key)){ 
+        cout << eventos << endl;
     }
 }
 
 void comando_print(const map<string,set<string>>& base_datos){
-    /*string ano_string;
-    if(tiempo.ano>0){
-        int ceros_extras_ano = 4 - to_string(tiempo.ano).size();
-        ano_string= string(ceros_extras_ano, '0')+ to_string(tiempo.ano);
 
-    }else if(tiempo.ano<0){
-        int ceros_extras_ano = 5- to_string(tiempo.ano).size();
-        ano_string= "-"s + string(ceros_extras_ano, '0') + to_string(tiempo.ano*-1);
+    for(const pair<string,set<string>>& fechas_eventos : base_datos){
+        string ano_find, mes_find, dia_find;
+        int find_clock=0;
+
+        // Extract year
+        while (find_clock < fechas_eventos.first.size() && fechas_eventos.first[find_clock] != '-') {
+            ano_find += fechas_eventos.first[find_clock];
+            ++find_clock;
+        }
+
+
+        // Extract month
+        while (find_clock < fechas_eventos.first.size() && fechas_eventos.first[find_clock] != '-') {
+            mes_find += fechas_eventos.first[find_clock];
+            ++find_clock;
+        }
+        ++find_clock; 
+
+    
+        while (find_clock < fechas_eventos.first.size()) {
+            dia_find += fechas_eventos.first[find_clock];
+            ++find_clock;
+        }
+
+        int ano_int = stoi(ano_find);
+        int mes_int = stoi(mes_find);
+        int dia_int = stoi(dia_find);
+        string ano_find_string;
+
+        if(ano_int>0){
+            int ceros_ano = 4 - to_string(ano_int).size();
+            ano_find_string= string(ceros_ano, '0')+ to_string(ano_int);
+
+        }else if(ano_int<0){
+            int ceros_ano = 5- to_string(ano_int).size();
+            ano_find_string= "-"s + string(ceros_ano, '0') + to_string(ano_int*-1);
+        }
+        int ceros_mes = 2 - to_string(mes_int).size();
+        int ceros_dia = 2 - to_string(dia_int).size();
+
+        string key =  ano_find_string + "-"s + string(ceros_mes, '0') + to_string(mes_int) + "-"s + string(ceros_dia, '0') + to_string(dia_int);
+
+
+        for(string evento_container: fechas_eventos.second){
+            cout << key  << " " <<evento_container << endl;
+
+        }       
     }
-    int ceros_extras_mes = 2 - to_string(tiempo.mes).size();
-    int ceros_extras_dia = 2 - to_string(tiempo.dia).size();
-
-    string key =  ano_string + "-"s + string(ceros_extras_mes, '0') + to_string(tiempo.mes) + "-"s + string(ceros_extras_dia, '0') + to_string(tiempo.dia);
-*/
 }
 
 void base_datos_principal(string comando, Fechas tiempo, string evento, map<string,set<string>>& base_datos){

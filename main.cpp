@@ -2,7 +2,6 @@
 #include <iostream>
 using namespace std;
 int main(){
-    int control=0;
     map<string, set<string>> base_datos;
     do{
         string comando;
@@ -105,7 +104,7 @@ int main(){
         tiempo.dia = stoi(dia);
 
     base_datos_principal(comando, tiempo, evento, base_datos);
-    }while(control>=0);
+    }while(1);
 
 
     return 0;
