@@ -82,10 +82,9 @@ void comando_find(const map<string,set<string>>& base_datos, Fechas tiempo){
 void comando_print(const map<string,set<string>>& base_datos){
     
     for(const pair<string,set<string>>& fechas_eventos : base_datos){
-
+        
         for(string evento_container_second: fechas_eventos.second){
             cout << fechas_eventos.first  << " " << evento_container_second << endl;
-
         }       
     }
 }

@@ -3,6 +3,7 @@
 #include <map>
 #include <string>
 #include <set>
+#include <vector>
 using namespace std;
 struct Fechas{
     int ano;
