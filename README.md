@@ -150,43 +150,48 @@ value = m.at(key); / Todo bien
 ~~~
 
 ## Comparativa de Bases de Datos Existentes
-- MySQL es una base de datos muy popular y ampliamente utilizada, lo que facilita encontrar soluciones a problemas y obtener soporte. Funciona en múltiples plataformas y es compatible con muchos lenguajes de programación. Sin embargo es menos flexible en comparación con las bases de datos NoSQL. Al ser tan popular, nos provee de una menor calidad de seguridad que una base de datos propia.
+- MySQL es una base de datos muy popular y ampliamente utilizada, lo que facilita encontrar soluciones a problemas y obtener soporte. Funciona en múltiples plataformas y es compatible con muchos lenguajes de programación. Sin embargo es menos flexible en comparación con las bases de datos NoSQL. Al ser de codigo abierto no tiene un soporte oficial de alguna empresa de confianza, y nos provee de una menor calidad de seguridad que una base de datos propia.
 
-- PostgreSQL es muy extensible y permite crear tipos de datos personalizados y funciones. Además garantiza la confiabilidad de las transacciones, y está optimizado para manejar consultas complejas y grandes volúmenes de datos. Sin emabargo, al ser tan personalizable requiere más tiempo y esfuerzo para la configuración y mantenimineto. Por lo que podriamos solucionar este problema al crear nuestro propia base de datos controlada, personalizada y gestionada por nuestra empresa.
+- PostgreSQL es muy extensible y permite crear tipos de datos personalizados y funciones. Además garantiza la confiabilidad de las transacciones, y está optimizado para manejar consultas complejas y grandes volúmenes de datos. Sin emabargo, al ser tan personalizable requiere más tiempo y esfuerzo para la configuración y mantenimineto. Siendo asi la base de datos mas compleja de manejo inicialmente. Por lo que podriamos solucionar este problema al crear nuestro propia base de datos controlada, personalizada y gestionada por nuestra empresa.
 
 - MongoDB es una base de datos no relacional, por lo que es muy flexible y no requiere un esquema fijo. Está diseñado para trabajar con un gran volúmen de datos. También es muy rápido y se integra fácilmente con aplicaciones modernas. Lastimosamente suele necesitar niveles exagerados de memoria considerando la cantidad de datos introducidos.
 
-- Redis es una base de datos extremadamente rápida, lo que lo hace ideal para lectura y escritura. Soporta múltiples estructuras de datos como cadenas, listas y conjuntos. Sin embargo, está limitado por la cantidad de RAM disponible y sus estrucutras no son tan solidas. Además, es más utlizado para caché y almacenamiento temporal (RAM) de datos que para bases de datos a largo plazo.
+- Redis es una base de datos extremadamente rápida, lo que la hace ideal para lectura y escritura. Soporta múltiples estructuras de datos como cadenas, listas y conjuntos. Sin embargo, está limitado por la cantidad de RAM disponible y sus estrucutras no son tan solidas. Además, es más utlizado para caché y almacenamiento temporal (RAM) de datos que para bases de datos a largo plazo.
 
 ## Justificación del Nuevo Desarrollo
-Al ver diferentes opciones de bases de datos del mercado, encontramos que ninguna satisface nuestras rigidas demandas. Necesitamos una base de datos de confianza, que no este regulada por entidades internacionales, debido a que necesitamos almacenar datos confidenciales. Ninguna base de datos existente cumple todos nuestros requisitos simultáneamente. Por eso, justificamos crear una nueva base de datos que maneje eventos y fechas en tiempo real con características personalizadas del calendario, cumpliendo asi con los requisitos de seguridad de la empresa.
+Al ver diferentes opciones de bases de datos del mercado, encontramos que ninguna satisface nuestras rigidas demandas. Necesitamos una base de datos de confianza, que no este regulada por entidades internacionales, debido a que necesitamos almacenar datos confidenciales. Ninguna base de datos existente cumple todos nuestros requisitos simultáneamente. Por eso, justificamos crear una nueva base de datos que maneje eventos y fechas en tiempo real con características personalizadas del calendario, cumpliendo asi con los requisitos de seguridady privacidad de la empresa.
 
 
 ## Estructura del repositorio
 El repositorio esta dividido en 4 documentos esenciales. El primero es la explicacion del proyecto, el README.md. El cual explciara a detalle el proyecto del repositorio designado. Los otros 3 documentos son parte del codigo fuente del proyecto el cual esta dividido a nivel modular. Primeramente tenemos el header.h, donde podras encontrar todas las bibliotecas y funciones usadas en el codigo. Despues podras encontrar el main.cpp, aqui podras encontrarlas llamdas de las diferentes funciones, ademas de la organizacion de entrada de datos de las funciones. Por ultimo esta el source.cpp, aqui veras como funciona las diferentes funciones del codigo analizando el cuerpo de cada una.
 
-# Descripcion de las funciones, estructuras
+## Descripcion de las funciones, estructuras
 - struct Fechas: La estructura contiene elementos de ano, mes y dia de tipo de dato entero para su uso a lo largo de todas las funciones. Almacenara los datos introducidos por el usuario en el main.
-- void anadiendo_ceros_extra: Se anaden ceros extras para completar el formato de fecha AAAA-MM-DD e introducirlo a la base de datos.
-- void dividir_fecha: En el transcurso del codigo, necesitaremos dividir la fecha dividida por guiones medios que tiene tipo de dato string.
+- void anadiendo_ceros_extra: Se anaden ceros extras para completar el formato de fecha AAAA-MM-DD e introducirlo a la base de datos. Se usa al principio de cada funcion de comando excepto la de Print. 
+- void dividir_fecha: En el codigo, necesitaremos dividir la fecha (con tipo de dato string), que almacena el ano, mes y dia separados por un guion medio. Esta funcion extraera estos 3 datos en formato entero.
 - void comando_add: La primera funcionalidad del programa, guarda un evento con una fecha en la base de datos. 
 - void comando_del_evento: La segunda funcionalidad del programa, borra un evento especifico de una fecha especificada por el usuario.
 - void comando_del_fecha: La tercera funcionalidad del programa, borra todos los eventos de una fecha especificada por el usuario.
 - void comando_find: La cuarta funcionalidad busca todos los eventos de una fecha especifica y los imprime en orden ascendente.
-- void comando_print: La ultima funcionalidad imprime todos los eventos en orden ascendente de todas las fechas, igualmente en orden ascendente.
+- void comando_print: La ultima funcionalidad imprime todas las fechas en orden ascendente acompanadas por sus eventos en orden ascendente igualmente.
 - void base_datos_principal: Es la funcion principal del codigo, aqui se decide cual de las 5 funcionalidades usar en base al comando introducido por el usuario.
 
-# Diagrama de flujos
+## Diagrama de flujos
 ![Examen Final intro progra drawio](https://github.com/FernandoTerrazasLl/Evaluaci-n-Final-Intro-Progra/assets/159574670/d00077b8-ec90-4205-ace6-e626540df034)
 
-La imagen de arriba representa la logica fundamental del programa. En ella podemos ver todo el procesamiento de las diferentes entradas que demanda el programa (comando, fecha y eventos) a la vez que sus diferentes tomas de decisiones basadas en las funciones programadas del algoritmo las cuales estan explicadas a detalle. El proposito del diagrama de flujo es proporcionar un analisis logico rapido y eficaz del funcionamiento estructural del codigo disenado en el repositorio.  
+El diagrama de flujo representa la logica fundamental del programa. En ella podemos ver todo el procesamiento de las diferentes entradas que demanda el programa (comando, fecha y eventos) y su trayecto a lo largo del programa. Incluso vemos las diferentes tomas de decisiones basadas en las funciones programadas del algoritmo las cuales fueron explicadas a detalle. A la derecha del diagrama de flujo podemos ver una ramificacion organizada especialmente para el proceso de entrada de datos. A la izquierda vemos el algoritmo disenado para obtener los resultados deseados. El proposito del diagrama de flujo es proporcionar un analisis logico rapido y eficaz del funcionamiento estructural del codigo disenado en el repositorio.  
 
-# Creditos
+## Creditos
 El autor de este proyecto es:
 - Fernando Terrazas Llanos
+Estudiante de primer semestre de Ing. de Software de la Universidad Catolica Boliviana San Pablo.
 
-# Herramientas utilizadas
-- Editor de texto: Visual Studio Code
-- Lenguaje programacion: c++
-- Compilador: MinGW 
-- Diseno de Diagrama de Flujo: draw.io
+Bajo la supervision y tutela de:
+- Ing. Jose Jesus Cabrera Pantoja
+Jefe de carrera de Ing. de Software de la Universidad Catolica Boliviana San Pablo. 
+
+## Herramientas utilizadas
+- Editor de texto utilizado en el transcurso del proyecto: Visual Studio Code
+- Lenguaje programacion utilizado en todo el proyecto: c++
+- Compilador incluido en Visual Studio Code: MinGW 
+- Herramienta digital utilizada para el diseno del Diagrama de Flujo: draw.io

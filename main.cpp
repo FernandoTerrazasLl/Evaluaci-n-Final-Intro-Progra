@@ -3,14 +3,9 @@
 int main(){
     map<string, set<string>> base_datos;
     do{
-        string comando;
-        string fecha;
-        string evento;
+        string comando, fecha, evento, ano, mes, dia;
         Fechas tiempo;
 
-        string ano;
-        string mes;
-        string dia;
         cout << "Ingrese comando y argumentos designados" << endl;
         cin >> comando;
         //Verificando si el comando es valido
@@ -61,7 +56,6 @@ int main(){
         }
     base_datos_principal(comando, tiempo, evento, base_datos);
     }while(1);
-
 
     return 0;
 }
