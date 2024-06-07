@@ -64,12 +64,15 @@ No es necesario verificar la corrección del calendario: se considera que el nú
 días en cada mes es 31, no se necesita considerar años bisiestos. Si tanto el mes como el día son incorrectos, se debe mostrar solo un mensaje de error sobre el mes.
 
 Ejemplos:
+
+~~~
 1-1-1 — fecha correcta
 -1-1-1 — fecha correcta (año -1, mes 1, día 1)
 1--1-1 — fecha en formato correcto, pero con un mes incorrecto -1
 1---1-1 — fecha en formato incorrecto: el mes no puede comenzar con dos guiones
 1-+1-+1 — fecha correcta, ya que +1 es un número entero
 Después de manejar cualquiera de los errores de entrada descritos y mostrar el mensaje, el programa debe terminar su ejecución.
+~~~
 
 Qué errores de entrada no manejar
 No se busca romper tu programa de todas las formas posibles, por lo tanto, aparte de lo descrito en el punto anterior, puedes confiar en la corrección de la entrada. En particular, se garantiza que:
@@ -81,6 +84,8 @@ Aunque una fecha con un valor de año negativo se considera correcta, las prueba
 Ejemplos
 
 Entrada correcta:
+
+~~~
 Add 0-1-2 event1
 Add 1-2-3 event2
 Find 0-1-2
@@ -88,24 +93,32 @@ Del 0-1-2
 Print
 Del 1-2-3 event2
 Del 1-2-3 event2
+~~~
 
 Salida:
+
+~~~
 event1
 Deleted 1 events
 0001-02-03 event2
 Deleted successfully
 Event not found
-
+~~~
 
 Entrada Incorrecta:
+
+~~~
 Add 0-13-32 event1
 Salida:
 Month value is invalid: 13
+~~~
 
 Observaciones
 Conversión de un número a una cadena Para, teniendo el número MONTH, formar la cadena «El valor del mes no es válido: MONTH», se puede utilizar la función to_string, que convierte el número a una cadena. De esta manera, se puede formar la cadena necesaria de la siguiente manera:
 
+~~~
 string error = "Month value is invalid: " + to_string(month); language-cpp
+~~~
 
 Búsqueda en un diccionario constante
 Al implementar este patrón, es posible que necesites utilizar la búsqueda con corchetes para un diccionario pasado a la función por referencia constante. Como se mostró anteriormente, esto no será posible, ya que el acceso a una clave inexistente con corchetes la agregará al diccionario, lo cual no es permisible para un diccionario constante.
@@ -114,6 +127,7 @@ En este caso, en lugar de corchetes, utiliza el método at: en caso de ausencia 
 
 Por ejemplo, en lugar del código
 
+~~~
 void DoSomething(const map<int, int>& m) {
 //.
 if (m.count(key) > 0) {
@@ -121,8 +135,11 @@ value = m[key]; / No compilara
 }
 //...
 }
+~~~
 
 Use este codigo:
+
+~~~
 void DoSomething(const map<int, int>& m) {
 //...
 if (m.count(key) > 0) {
@@ -130,6 +147,7 @@ value = m.at(key); / Todo bien
 }
 //...
 }
+~~~
 
 ## Comparativa de Bases de Datos Existentes
 - MySQL es una base de datos muy popular y ampliamente utilizada, lo que facilita encontrar soluciones a problemas y obtener soporte. Funciona en múltiples plataformas y es compatible con muchos lenguajes de programación. Sin embargo es menos flexible en comparación con las bases de datos NoSQL. Al ser tan popular, nos provee de una menor calidad de seguridad que una base de datos propia.
@@ -160,6 +178,9 @@ El repositorio esta dividido en 4 documentos esenciales. El primero es la explic
 
 # Diagrama de flujos
 ![Examen Final intro progra drawio](https://github.com/FernandoTerrazasLl/Evaluaci-n-Final-Intro-Progra/assets/159574670/d00077b8-ec90-4205-ace6-e626540df034)
+
+La imagen de arriba representa la logica fundamental del programa. En ella podemos ver todo el procesamiento de las diferentes entradas que demanda el programa (comando, fecha y eventos) a la vez que sus diferentes tomas de decisiones basadas en las funciones programadas del algoritmo las cuales estan explicadas a detalle. El proposito del diagrama de flujo es proporcionar un analisis logico rapido y eficaz del funcionamiento estructural del codigo disenado en el repositorio.  
+
 # Creditos
 El autor de este proyecto es:
 - Fernando Terrazas Llanos
