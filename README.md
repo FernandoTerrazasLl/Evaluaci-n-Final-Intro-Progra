@@ -159,6 +159,7 @@ El repositorio esta dividido en 4 documentos esenciales. El primero es la explic
 - void base_datos_principal: Es la funcion principal del codigo, aqui se decide cual de las 5 funcionalidades usar en base al comando introducido por el usuario.
 
 # Diagrama de flujos. Debe estar embebido como imagen en le  README y dando una ligera explicacion de la imagen.
+https://github.com/FernandoTerrazasLl/Evaluaci-n-Final-Intro-Progra/issues/1#issue-2339481031
 
 # Creditos
 El autor de este proyecto es:
