@@ -158,9 +158,8 @@ El repositorio esta dividido en 4 documentos esenciales. El primero es la explic
 - void comando_print: La ultima funcionalidad imprime todos los eventos en orden ascendente de todas las fechas, igualmente en orden ascendente.
 - void base_datos_principal: Es la funcion principal del codigo, aqui se decide cual de las 5 funcionalidades usar en base al comando introducido por el usuario.
 
-# Diagrama de flujos. Debe estar embebido como imagen en le  README y dando una ligera explicacion de la imagen.
-https://github.com/FernandoTerrazasLl/Evaluaci-n-Final-Intro-Progra/issues/1#issue-2339481031
-
+# Diagrama de flujos
+![Examen Final intro progra drawio](https://github.com/FernandoTerrazasLl/Evaluaci-n-Final-Intro-Progra/assets/159574670/d00077b8-ec90-4205-ace6-e626540df034)
 # Creditos
 El autor de este proyecto es:
 - Fernando Terrazas Llanos
