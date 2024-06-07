@@ -165,29 +165,53 @@ Al ver diferentes opciones de bases de datos del mercado, encontramos que ningun
 ## Estructura del repositorio
 El repositorio esta dividido en 4 documentos esenciales. El primero es la explicacion del proyecto, el README.md. El cual explciara a detalle el proyecto del repositorio designado. Los otros 3 documentos son parte del codigo fuente del proyecto el cual esta dividido a nivel modular. Primeramente tenemos el header.h, donde podras encontrar todas las bibliotecas y funciones usadas en el codigo. Despues podras encontrar el main.cpp, aqui podras encontrarlas llamdas de las diferentes funciones, ademas de la organizacion de entrada de datos de las funciones. Por ultimo esta el source.cpp, aqui veras como funciona las diferentes funciones del codigo analizando el cuerpo de cada una.
 
-## Descripcion de las funciones, estructuras
-- struct Fechas: La estructura contiene elementos de ano, mes y dia de tipo de dato entero para su uso a lo largo de todas las funciones. Almacenara los datos introducidos por el usuario en el main.
-- void anadiendo_ceros_extra: Se anaden ceros extras para completar el formato de fecha AAAA-MM-DD e introducirlo a la base de datos. Se usa al principio de cada funcion de comando excepto la de Print. 
-- void dividir_fecha: En el codigo, necesitaremos dividir la fecha (con tipo de dato string), que almacena el ano, mes y dia separados por un guion medio. Esta funcion extraera estos 3 datos en formato entero.
-- void comando_add: La primera funcionalidad del programa, guarda un evento con una fecha en la base de datos. 
-- void comando_del_evento: La segunda funcionalidad del programa, borra un evento especifico de una fecha especificada por el usuario.
-- void comando_del_fecha: La tercera funcionalidad del programa, borra todos los eventos de una fecha especificada por el usuario.
-- void comando_find: La cuarta funcionalidad busca todos los eventos de una fecha especifica y los imprime en orden ascendente.
-- void comando_print: La ultima funcionalidad imprime todas las fechas en orden ascendente acompanadas por sus eventos en orden ascendente igualmente.
-- void base_datos_principal: Es la funcion principal del codigo, aqui se decide cual de las 5 funcionalidades usar en base al comando introducido por el usuario.
-
 ## Diagrama de flujos
-![Examen Final intro progra drawio](https://github.com/FernandoTerrazasLl/Evaluaci-n-Final-Intro-Progra/assets/159574670/d00077b8-ec90-4205-ace6-e626540df034)
+
+![Examen Final intro progra1 drawio](https://github.com/FernandoTerrazasLl/Evaluaci-n-Final-Intro-Progra/assets/159574670/b5d3de1b-e71a-4560-bd77-aa61ea6206b0)
 
 El diagrama de flujo representa la logica fundamental del programa. En ella podemos ver todo el procesamiento de las diferentes entradas que demanda el programa (comando, fecha y eventos) y su trayecto a lo largo del programa. Incluso vemos las diferentes tomas de decisiones basadas en las funciones programadas del algoritmo las cuales fueron explicadas a detalle. A la derecha del diagrama de flujo podemos ver una ramificacion organizada especialmente para el proceso de entrada de datos. A la izquierda vemos el algoritmo disenado para obtener los resultados deseados. El proposito del diagrama de flujo es proporcionar un analisis logico rapido y eficaz del funcionamiento estructural del codigo disenado en el repositorio.  
 
+## Descripcion de las funciones, estructuras
+- struct Fechas: La estructura contiene elementos de ano, mes y dia de tipo de dato entero para su uso a lo largo de todas las funciones. Almacenara los datos introducidos por el usuario en el main.
+- void anadiendo_ceros_extra: Se anaden ceros extras para completar el formato de fecha AAAA-MM-DD e introducirlo a la base de datos. Se usa al principio de cada funcion de comando excepto la de Print.
+
+![comando anadiendo_cero  drawio](https://github.com/FernandoTerrazasLl/Evaluaci-n-Final-Intro-Progra/assets/159574670/1d0fd166-e2b8-4c01-8e91-106d1d32df51)
+
+- void dividir_fecha: En el codigo, necesitaremos dividir la fecha (con tipo de dato string), que almacena el ano, mes y dia separados por un guion medio. Esta funcion extraera estos 3 datos en formato entero.
+
+![dividir_fecha drawio](https://github.com/FernandoTerrazasLl/Evaluaci-n-Final-Intro-Progra/assets/159574670/b10365aa-5290-4a51-a4c6-7f6e9993173a)
+
+- void comando_add: La primera funcionalidad del programa, guarda un evento con una fecha en la base de datos.
+
+![comando_add drawio](https://github.com/FernandoTerrazasLl/Evaluaci-n-Final-Intro-Progra/assets/159574670/58126219-2316-4043-ab00-02b24d7f1826)
+
+- void comando_del_evento: La segunda funcionalidad del programa, borra un evento especifico de una fecha especificada por el usuario.
+
+![Comando_del_evento drawio](https://github.com/FernandoTerrazasLl/Evaluaci-n-Final-Intro-Progra/assets/159574670/a7075e56-27d1-4bd9-94dd-63c1ca3ad666)
+
+- void comando_del_fecha: La tercera funcionalidad del programa, borra todos los eventos de una fecha especificada por el usuario.
+
+![Comando_del_fecha drawio](https://github.com/FernandoTerrazasLl/Evaluaci-n-Final-Intro-Progra/assets/159574670/e3cfb9be-5ed2-4004-880e-116686cf9dcb)
+
+- void comando_find: La cuarta funcionalidad busca todos los eventos de una fecha especifica y los imprime en orden ascendente.
+
+![Comando_find drawio](https://github.com/FernandoTerrazasLl/Evaluaci-n-Final-Intro-Progra/assets/159574670/3a62b778-e43b-4a95-b590-710df7364025)
+
+- void comando_print: La ultima funcionalidad imprime todas las fechas en orden ascendente acompanadas por sus eventos en orden ascendente igualmente.
+
+![Comando_Print drawio](https://github.com/FernandoTerrazasLl/Evaluaci-n-Final-Intro-Progra/assets/159574670/a92250ee-371f-4906-8cfd-1ee3d9b39fbc)
+
+- void base_datos_principal: Es la funcion principal del codigo, aqui se decide cual de las 5 funcionalidades usar en base al comando introducido por el usuario.
+
+![Base_datos_principal drawio](https://github.com/FernandoTerrazasLl/Evaluaci-n-Final-Intro-Progra/assets/159574670/e363f272-6dd0-464f-b6f8-e8460f3ad435)
+
 ## Creditos
 El autor de este proyecto es:
-- Fernando Terrazas Llanos
+- Fernando Terrazas Llanos:
 Estudiante de primer semestre de Ing. de Software de la Universidad Catolica Boliviana San Pablo.
 
 Bajo la supervision y tutela de:
-- Ing. Jose Jesus Cabrera Pantoja
+- Ing. Jose Jesus Cabrera Pantoja:
 Jefe de carrera de Ing. de Software de la Universidad Catolica Boliviana San Pablo. 
 
 ## Herramientas utilizadas
