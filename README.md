@@ -167,7 +167,7 @@ El repositorio esta dividido en 4 documentos esenciales. El primero es la explic
 
 ## Diagrama de flujos
 
-![Examen Final intro progra1 drawio](https://github.com/FernandoTerrazasLl/Evaluaci-n-Final-Intro-Progra/assets/159574670/b5d3de1b-e71a-4560-bd77-aa61ea6206b0)
+![Examen Final intro progra Final drawio](https://github.com/FernandoTerrazasLl/Evaluaci-n-Final-Intro-Progra/assets/159574670/da308757-3551-4593-baed-7eb7d0aa7f25)
 
 El diagrama de flujo representa la logica fundamental del programa. En ella podemos ver todo el procesamiento de las diferentes entradas que demanda el programa (comando, fecha y eventos) y su trayecto a lo largo del programa. Incluso vemos las diferentes tomas de decisiones basadas en las funciones programadas del algoritmo las cuales fueron explicadas a detalle. A la derecha del diagrama de flujo podemos ver una ramificacion organizada especialmente para el proceso de entrada de datos. A la izquierda vemos el algoritmo disenado para obtener los resultados deseados. El proposito del diagrama de flujo es proporcionar un analisis logico rapido y eficaz del funcionamiento estructural del codigo disenado en el repositorio.  
 
@@ -176,6 +176,10 @@ El diagrama de flujo representa la logica fundamental del programa. En ella pode
 - void anadiendo_ceros_extra: Se anaden ceros extras para completar el formato de fecha AAAA-MM-DD e introducirlo a la base de datos. Se usa al principio de cada funcion de comando excepto la de Print.
 
 ![comando anadiendo_cero  drawio](https://github.com/FernandoTerrazasLl/Evaluaci-n-Final-Intro-Progra/assets/159574670/1d0fd166-e2b8-4c01-8e91-106d1d32df51)
+
+- bool verificando_formato_fecha: Esta funcion analiza las fechas de ano, mes y dia por separado para verificar que tienen un buen foramato. Analiza caracter por caracter el contenido de la misma, supervisando que contengan solo numeros y los signos designados('-' o '+').
+
+![verificando formato drawio](https://github.com/FernandoTerrazasLl/Evaluaci-n-Final-Intro-Progra/assets/159574670/bf65d8de-e2c0-4914-aeb3-4b22dcdcbbc9)
 
 - void dividir_fecha: En el codigo, necesitaremos dividir la fecha (con tipo de dato string), que almacena el ano, mes y dia separados por un guion medio. Esta funcion extraera estos 3 datos en formato entero.
 
