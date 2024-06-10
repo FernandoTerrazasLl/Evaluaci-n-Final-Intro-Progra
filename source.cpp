@@ -27,16 +27,16 @@ void dividir_fecha(string& ano_find, string& mes_find, string& dia_find, const s
     }while(find_clock <fecha.size() && fecha[find_clock] != '-');
     ++find_clock;
 
-    while(find_clock < fecha.size() && fecha[find_clock] != '-'){
+    do{
         mes_find += fecha[find_clock];
         ++find_clock;
-    }
+    }while(find_clock < fecha.size() && fecha[find_clock] != '-');
     ++find_clock; 
   
-    while(find_clock< fecha.size()){
+    do{
         dia_find += fecha[find_clock];
         ++find_clock;
-    }
+    }while(find_clock< fecha.size());
 }
 void comando_add(map<string,set<string>>& base_datos, Fechas tiempo, string evento){
     // Anadiendo ceros extras a las fechas AAAA-MM-DD y guardando

@@ -15,18 +15,46 @@ int main(){
             if(comando != "Print"){
                 cin >> fecha;
 
-                //Verificando formato de fecha
-                if(((fecha[0]<= '9' && fecha[0]>= '0') && (fecha[fecha.size()-1] >= '0' && fecha[fecha.size()-1] <= '9'))
-                || ((fecha[0]=='-' && fecha[1] !='-') && (fecha[fecha.size()-1] >= '0' && fecha[fecha.size()-1] <= '9'))
-                || ((fecha[0]=='+' && fecha[1] !='+') && (fecha[fecha.size()-1] >= '0' && fecha[fecha.size()-1] <= '9'))){
-                }else{
+                dividir_fecha(ano, mes, dia, fecha);
+
+                cout <<ano << mes << dia << endl;
+                //Verificando contenido de ano, mes, dia
+                int contador_error_ano=0;
+                for(int i=0; i<ano.size(); ++i){
+                    if(ano[i]=='-' || ano[i]=='+'){
+                        ++contador_error_ano;
+                    }
+                    if(ano[i]>'9' || ano[i]<'0' && ano[i] !='+' && ano[i] !='-'|| contador_error_ano >1){
+                        cout << "Wrong Date Format: " << fecha << endl;
+                        return 0;
+                    }
+                }
+                int contador_error_mes=0;
+                for(int i=0; i<mes.size(); ++i){
+                    if(mes[i]=='+'|| mes[i]=='-'){
+                        ++contador_error_mes;
+                    }
+                    if(mes[i]>'9' || mes[i]<'0' && mes[i] !='+' && mes[i] !='-' || contador_error_mes >1){
+                        cout << "Wrong Date Format: " << fecha << endl;
+                        return 0;
+                    }
+                }
+                int contador_error_dia=0;
+                for(int i=0; i<dia.size(); ++i){
+                    if(dia[i]=='+'|| ano[i]=='-'){
+                        ++contador_error_dia;
+                    }
+                    if(dia[i]>'9' || dia[i]<'0' && dia[i] !='+' && dia[i] !='-'  || contador_error_dia >1){
+                        cout << "Wrong Date Format: " << fecha << endl;
+                        return 0;
+                    }
+                }
+
+                //Verificando errores de entrada mes y dia y transformando
+                if(stoi(ano)>9999 || stoi(ano)<-9999){
                     cout << "Wrong Date Format: " << fecha << endl;
                     return 0;
                 }
-
-                dividir_fecha(ano, mes, dia, fecha);
-   
-                //Verificando errores de entrada mes y dia y transformando
                 if(stoi(mes)>12 || stoi(mes)<1){
                     cout << "Month value is invalid:" << mes << endl;
                     return 0;
