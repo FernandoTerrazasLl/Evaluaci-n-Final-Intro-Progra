@@ -13,6 +13,7 @@ struct Fechas{
 };
 
 void anadiendo_ceros_extra(const Fechas& tiempo, string& key);
+bool verificando_formato_fecha(const string& ano);
 void dividir_fecha(string& ano_find, string& mes_find, string& dia_find, const string& fecha);
 void comando_add(map<string,set<string>>& base_datos, Fechas tiempo, string evento);
 void comando_del_evento(map<string,set<string>>& base_datos, Fechas tiempo, string evento);

@@ -17,39 +17,12 @@ int main(){
 
                 dividir_fecha(ano, mes, dia, fecha);
 
-                cout <<ano << mes << dia << endl;
                 //Verificando contenido de ano, mes, dia
-                int contador_error_ano=0;
-                for(int i=0; i<ano.size(); ++i){
-                    if(ano[i]=='-' || ano[i]=='+'){
-                        ++contador_error_ano;
-                    }
-                    if(ano[i]>'9' || ano[i]<'0' && ano[i] !='+' && ano[i] !='-'|| contador_error_ano >1){
-                        cout << "Wrong Date Format: " << fecha << endl;
-                        return 0;
-                    }
+                if(verificando_formato_fecha(ano)|| verificando_formato_fecha(mes)||verificando_formato_fecha(dia)){
+                    cout << "Wrong Date Format: " << fecha << endl;
+                    return 0;
                 }
-                int contador_error_mes=0;
-                for(int i=0; i<mes.size(); ++i){
-                    if(mes[i]=='+'|| mes[i]=='-'){
-                        ++contador_error_mes;
-                    }
-                    if(mes[i]>'9' || mes[i]<'0' && mes[i] !='+' && mes[i] !='-' || contador_error_mes >1){
-                        cout << "Wrong Date Format: " << fecha << endl;
-                        return 0;
-                    }
-                }
-                int contador_error_dia=0;
-                for(int i=0; i<dia.size(); ++i){
-                    if(dia[i]=='+'|| ano[i]=='-'){
-                        ++contador_error_dia;
-                    }
-                    if(dia[i]>'9' || dia[i]<'0' && dia[i] !='+' && dia[i] !='-'  || contador_error_dia >1){
-                        cout << "Wrong Date Format: " << fecha << endl;
-                        return 0;
-                    }
-                }
-
+                
                 //Verificando errores de entrada mes y dia y transformando
                 if(stoi(ano)>9999 || stoi(ano)<-9999){
                     cout << "Wrong Date Format: " << fecha << endl;

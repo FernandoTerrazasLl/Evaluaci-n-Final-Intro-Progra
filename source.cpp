@@ -18,6 +18,18 @@ void anadiendo_ceros_extra(const Fechas& tiempo, string& key){
         key =  ano_find_string + "-"s + string(ceros_mes, '0') + to_string(tiempo.mes) + "-"s + string(ceros_dia, '0') + to_string(tiempo.dia);
 }
 
+bool verificando_formato_fecha(const string& ano){
+    int contador_error_ano=0;
+    for(int i=0; i<ano.size(); ++i){
+        if(ano[i]=='-' || ano[i]=='+'){
+            ++contador_error_ano;
+        }
+        if(ano[i]>'9' || ano[i]<'0' && ano[i] !='+' && ano[i] !='-'|| contador_error_ano >1){
+            return true;
+        }
+    }
+    return false;
+}
 void dividir_fecha(string& ano_find, string& mes_find, string& dia_find, const string& fecha){
     int find_clock=0;
 
