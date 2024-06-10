@@ -214,6 +214,12 @@ Bajo la supervision y tutela de:
 - Ing. Jose Jesus Cabrera Pantoja:
 Jefe de carrera de Ing. de Software de la Universidad Catolica Boliviana San Pablo. 
 
+## Referencia
+[MySQL](https://openwebinars.net/blog/que-es-mysql/)
+[PostgreSQL](https://blog.infranetworking.com/servidor-postgresql/)
+[MongoDB](https://openwebinars.net/blog/que-es-mongodb/)
+[Redis](https://proximahost.es/blog/redis-almacen-datos-memoria/)
+
 ## Herramientas utilizadas
 - Editor de texto utilizado en el transcurso del proyecto: Visual Studio Code
 - Lenguaje programacion utilizado en todo el proyecto: c++
